@@ -20,7 +20,6 @@ use UserFrosting\Sprinkle\Account\Model\User;
 use UserFrosting\Sprinkle\Account\Repository\PasswordResetRepository;
 use UserFrosting\Sprinkle\Account\Repository\VerificationRepository;
 use UserFrosting\Sprinkle\Account\Twig\AccountExtension;
-use UserFrosting\Sprinkle\Core\Facades\Debug;
 use UserFrosting\Sprinkle\Core\Log\MixedFormatter;
 
 /**
@@ -260,9 +259,12 @@ class AccountServicesProvider
             // Add user locale to translator service
             $translator->loadLocaleFiles($currentUser->locale);
             
-            // Add paths for user theme in Twig
-            Debug::debug("Loading theme " . $currentUser->theme);
-            $c->sprinkleManager->registerSprinkleResources($currentUser->theme);        
+            // TODO: Set user theme in Twig
+            /*
+            // Set path to user's theme, prioritizing over any other themes.
+            $loader = $twig->getLoader();
+            $loader->prependPath($this->config('themes.path') . "/" . $this->user->getTheme());
+            */            
             
             return $currentUser;
         };
