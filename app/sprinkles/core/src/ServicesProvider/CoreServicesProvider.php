@@ -517,9 +517,11 @@ class CoreServicesProvider
          * Also adds the UserFrosting core Twig extension, which provides additional functions, filters, global variables, etc.
          */
         $container['view'] = function ($c) {
-            $templatePaths = $c->locator->findResources('templates://', true, true);
+            $templatePaths = $c->locator->findResources('templates://'.$c->config['site.theme'], true, false);
 
             $view = new Twig($templatePaths);
+
+            //\UserFrosting\Sprinkle\Core\Facades\Debug::debug("VIEW :: " . print_r($view, true));
 
             $twig = $view->getEnvironment();
 

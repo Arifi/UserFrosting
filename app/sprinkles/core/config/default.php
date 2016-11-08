@@ -5,7 +5,7 @@
      *
      * Sensitive credentials should be stored in an environment variable or your .env file.
      * Database password: DB_PASSWORD
-     * SMTP server password: SMTP_PASSWORD     
+     * SMTP server password: SMTP_PASSWORD
      */
 
     return [
@@ -108,7 +108,8 @@
                 'assets-raw'        => 'assets-raw',
                 'assets'            => 'assets'
             ],
-            'locales' =>  'en_US'   // This can be a comma-separated list, to load multiple fallback locales
+            'locales' =>  'en_US',   // This can be a comma-separated list, to load multiple fallback locales
+            'theme' => 'default'
         ],
         'timezone' => 'America/New_York',
         'error_reporting' => E_ALL,  // Development - report all errors and suggestions
